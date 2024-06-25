@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ms. Rao's Daily Adventure in Practicum</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game">
+        <h1>Ms. Rao's Daily Adventure in Practicum</h1>
+        <button onclick="startGame()">Start</button>
+    </div>
+
+    <script>
+        const events = [
+            "A student forgets to bring textbook.",
+            "A student wants to use the washroom.",
+            "A student forgets to bring pens.",
+            "A student forgets to bring the homework.",
+            "A student suddenly lays down on the ground.",
+            "A student is feeling sick.",
+            "A student refused to do the group work.",
+            "A student was distracted by the cellphone.",
+            "A student suddenly stands up and leaves without permission.",
+            "A student suddenly stands up and wanders in the classroom.",
+            "A student suddenly laughs out loud with no known reason."
+        ];
+
+        let cycleCount = 0;
+
+        function startGame() {
+            document.getElementById('game').innerHTML = `
+                <img src="bgen.gif" alt="Full energy before class start">
+                <p>Full energy before class start</p>
+                <button onclick="classroomScenario()">Continue</button>
+            `;
+        }
+
+        function classroomScenario() {
+            const scenario = Math.random() < 0.1 
+                ? 'Every student came on time, perfect!' 
+                : 'Half of the class was late!';
+            document.getElementById('game').innerHTML = `
+                <img src="angry.gif" alt="${scenario}">
+                <p>${scenario}</p>
+                <button onclick="randomEvent()">Continue</button>
+            `;
+        }
+
+        function randomEvent() {
+            if (cycleCount >= 8) {
+                endLesson();
+                return;
+            }
+            const event = events[Math.floor(Math.random() * events.length)];
+            document.getElementById('game').innerHTML = `
+                <p>${event}</p>
+                <button onclick="proceedLesson()">Ms. Rao must continue the lesson with a peaceful face and energetic voice</button>
+                <button onclick="classroomChaos()">Oops! Ms. Rao didn't notice what happened!</button>
+            `;
+        }
+
+        function proceedLesson() {
+            cycleCount++;
+            randomEvent();
+        }
+
+        function classroomChaos() {
+            document.getElementById('game').innerHTML = `
+                <img src="crazily.gif" alt="Boom! The classroom going crazy!">
+                <p>Boom! The classroom going crazy!</p>
+                <button onclick="randomEvent()">Continue</button>
+            `;
+        }
+
+        function endLesson() {
+            document.getElementById('game').innerHTML = `
+                <img src="bell.png" alt="The bell rings finally!">
+                <p>The bell rings finally!</p>
+                <button onclick="finishGame()">Continue</button>
+            `;
+        }
+
+        function finishGame() {
+            document.getElementById('game').innerHTML = `
+                <img src="pachirisu-cute.gif" alt="Congratulations! Ms. Rao just finished one class!">
+                <p>Congratulations! Ms. Rao just finished one class!</p>
+                <button onclick="moreClasses()">Continue</button>
+            `;
+        }
+
+        function moreClasses() {
+            document.getElementById('game').innerHTML = `
+                <img src="crazy.gif" alt="Congratulations! Ms. Rao just finished one class!">
+                <p>But there are still three more to go!</p>
+                <button onclick="moreClassesi()">Continue</button>
+            `;
+        }
+
+        function moreClassesi() {
+            document.getElementById('game').innerHTML = `
+                <img src="faintpikachu.PNG" alt="After a day Ms. Rao's status... ">
+                <p>After a day Ms. Rao's status... </p>
+                <button onclick="moreClassesii()">Go Home</button>
+            `;
+        }
+       
+        function moreClassesii() {
+            document.getElementById('game').innerHTML = `
+                <img src="pikachu.png" alt="Next day, it will be the same day">
+                <p>Well, as a teacher, this happens every day!</p>
+            `;
+        }
+    </script>
+</body>
+</html>
