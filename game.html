@@ -71,7 +71,7 @@
             const event = events[Math.floor(Math.random() * events.length)];
             document.getElementById('game').innerHTML = `
                 <p>${event}</p>
-                <button onclick="proceedLesson()">Ms. Rao must continue the lesson with a peaceful face and energetic voice</button>
+                <button onclick="proceedLesson()">Ms. Rao addressed the issue and she must continue the lesson with a peaceful face and energetic voice!</button>
                 <button onclick="classroomChaos()">Oops! Ms. Rao didn't notice what happened!</button>
             `;
         }
@@ -84,7 +84,7 @@
         function classroomChaos() {
             document.getElementById('game').innerHTML = `
                 <img src="crazily.gif" alt="Boom! The classroom going crazy!">
-                <p>Boom! The classroom going crazy!</p>
+                <p>Boom! The classroom is going crazy!</p>
                 <button onclick="randomEvent()">Continue</button>
             `;
         }
@@ -117,14 +117,17 @@
             document.getElementById('game').innerHTML = `
                 <img src="faintpikachu.PNG" alt="After a day Ms. Rao's status... ">
                 <p>After a day Ms. Rao's status... </p>
-                <button onclick="moreClassesii()">Go Home</button>
+                <button onclick="moreClassesii()">Home! Lovely Home!</button>
             `;
         }
        
         function moreClassesii() {
             document.getElementById('game').innerHTML = `
                 <img src="pikachu.png" alt="Next day, it will be the same day">
+                <p>C'est la vie! </p>
                 <p>Well, as a teacher, this happens every day!</p>
+                <p>Ms. Rao Enjoys it~</p> 
+                <p>(but with pain QwQ)</p>
             `;
         }
     </script>
